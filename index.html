@@ -187,6 +187,16 @@
     padding: 0.1rem 0.35rem;
     border-radius: 4px;
   }
+  .grid > * { min-width: 0; }
+  .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  td { overflow-wrap: anywhere; }
+  .facts dd { overflow-wrap: anywhere; }
+  @media (max-width: 520px) {
+    body { padding: 1.25rem 0.75rem 2rem; }
+    .card { padding: 1rem 0.85rem; }
+    th, td { padding: 0.35rem 0.3rem; }
+    .facts { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  }
   @media print {
     :root {
       --bg: #fff;
@@ -210,7 +220,7 @@
     <h1>Flight fare watches</h1>
     <p class="meta">
       Household fare watch · daily Google Flights pulls · alert on new either-low only<br>
-      Dashboard generated <strong>Wed Oct 7, 2026</strong> (ET) · data as of last log entry per watch
+      Dashboard generated <strong>Thu Oct 8, 2026</strong> (ET) · data as of last log entry per watch
     </p>
   </header>
 
@@ -219,7 +229,7 @@
     <!-- ========== WATCH 1: HPN/BDL → RSW ========== -->
     <section class="card" id="hpn-rsw">
       <h2>HPN / BDL → RSW (Naples / Fort Myers)
-        <span class="badge new">New low</span>
+        <span class="badge flat">No change</span>
       </h2>
       <p class="purpose">Family spring break · nonstop only · RSW not APF · all carriers</p>
 
@@ -227,17 +237,17 @@
         <div class="kpi">
           <div class="label">Either-low</div>
           <div class="value low">$2,355</div>
-          <div class="sub">JetBlue · HPN · Oct 7</div>
+          <div class="sub">JetBlue · HPN · Oct 7 · unconfirmed; no longer showing</div>
         </div>
         <div class="kpi">
-          <div class="label">Δ vs prior either-low</div>
-          <div class="value low">−$355</div>
-          <div class="sub">was $2,710 Southwest BDL Sep 27</div>
+          <div class="label">Today best vs low</div>
+          <div class="value">+$273</div>
+          <div class="sub">$2,628 JetBlue HPN Oct 8 · no new low</div>
         </div>
         <div class="kpi">
           <div class="label">HPN running low</div>
           <div class="value low">$2,355</div>
-          <div class="sub">JetBlue · Oct 7</div>
+          <div class="sub">JetBlue · Oct 7 · unconfirmed; gone Oct 8</div>
         </div>
         <div class="kpi">
           <div class="label">BDL running low</div>
@@ -250,15 +260,15 @@
         <dt>Passengers</dt><dd>4 (family)</dd>
         <dt>Dates</dt><dd>Out 2027-02-13 · Ret 2027-02-20</dd>
         <dt>Airports</dt><dd>HPN, BDL → RSW</dd>
-        <dt>Last check</dt><dd>2026-10-07 (ET)</dd>
+        <dt>Last check</dt><dd>2026-10-08 (ET)</dd>
         <dt>Cadence</dt><dd>Daily</dd>
         <dt>Alert rule</dt><dd>New either-low only</dd>
-        <dt>Today HPN</dt><dd>$2,355 JetBlue — NEW HPN + either low; unconfirmed at booking-site level (Kayak/GF partial)</dd>
-        <dt>Today BDL</dt><dd>$3,486 JetBlue (above prior either-low $2,710)</dd>
+        <dt>Today HPN</dt><dd>$2,628 JetBlue (Oct 7 $2,355 fare no longer showing, +$273; either-low still $2,355 Oct 7 unconfirmed; Kayak)</dd>
+        <dt>Today BDL</dt><dd>$3,692 JetBlue + Breeze (above either-low $2,355; also B6+MX $3,891, B6 $3,981; Kayak)</dd>
       </dl>
 
       <div class="section-title">Recent history (last pulls)</div>
-      <table>
+      <div class="table-wrap"><table>
         <thead>
           <tr>
             <th>Date</th>
@@ -269,6 +279,12 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>2026-10-08</td><td>HPN</td><td class="num">$2,628</td><td>JetBlue</td><td>Oct 7 $2,355 fare no longer showing (+$273); above either-low; Kayak</td>
+          </tr>
+          <tr>
+            <td>2026-10-08</td><td>BDL</td><td class="num">$3,692</td><td>JetBlue + Breeze</td><td>above either-low $2,355; also B6+MX $3,891, B6 $3,981; Kayak</td>
+          </tr>
           <tr class="new-low">
             <td>2026-10-07</td><td>HPN</td><td class="num">$2,355</td><td>JetBlue</td><td>NEW HPN + either low (−$355); unconfirmed at booking-site (Kayak/GF partial)</td>
           </tr>
@@ -345,8 +361,8 @@
             <td>2026-09-21</td><td>BDL</td><td class="num">$2,712</td><td>Breeze</td><td>NEW either-low; prior $3,472</td>
           </tr>
         </tbody>
-      </table>
-      <p class="note">Oct 7 HPN $2,355 is unconfirmed at booking-site level (Kayak listed; GF Cheapest tab showed &quot;from $2,355&quot; but list did not). Google Flights screenshots kept offline only. Re-check live before booking.</p>
+      </table></div>
+      <p class="note">Running either-low $2,355 (Oct 7 HPN JetBlue) remains historical and was unconfirmed at booking-site level (Kayak listed; GF Cheapest tab &quot;from $2,355&quot; but list did not). As of Oct 8 that fare is no longer showing ($2,628 same B6 1251/return). Screenshots offline only. Re-check live before booking.</p>
     </section>
 
     <!-- ========== WATCH 2: BNA wedding ========== -->
@@ -385,15 +401,15 @@
         <dt>Windows</dt><dd>Fri–Mon 4/9–12 · Sat–Mon 4/10–12 · Sat–Tue 4/10–13</dd>
         <dt>Primary origins</dt><dd>HPN, BDL</dd>
         <dt>Context</dt><dd>LGA / JFK / EWR (flag if materially cheaper)</dd>
-        <dt>Last check</dt><dd>2026-10-07 (ET)</dd>
+        <dt>Last check</dt><dd>2026-10-08 (ET)</dd>
         <dt>Cadence</dt><dd>Daily</dd>
         <dt>Alert rule</dt><dd>New either-low (HPN/BDL) only</dd>
-        <dt>Today BDL</dt><dd>Sat–Tue $1,018 · Fri–Mon $1,056 · Sat–Mon $1,068 (Southwest; above either-low $972)</dd>
+        <dt>Today BDL</dt><dd>Sat–Tue $1,018 · Fri–Mon $1,056 · Sat–Mon $1,068 (Southwest; above either-low $972; flat vs 10/7)</dd>
         <dt>Today HPN</dt><dd>no nonstops</dd>
       </dl>
 
       <div class="section-title">Recent history — BDL primary (last pulls)</div>
-      <table>
+      <div class="table-wrap"><table>
         <thead>
           <tr>
             <th>Date</th>
@@ -405,6 +421,18 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>2026-10-08</td><td>Sat–Tue</td><td>BDL</td><td class="num">$1,018</td><td>Southwest</td><td>flat vs 10/7; above either-low $972; Kayak</td>
+          </tr>
+          <tr>
+            <td>2026-10-08</td><td>Fri–Mon</td><td>BDL</td><td class="num">$1,056</td><td>Southwest</td><td>flat vs 10/7; Kayak</td>
+          </tr>
+          <tr>
+            <td>2026-10-08</td><td>Sat–Mon</td><td>BDL</td><td class="num">$1,068</td><td>Southwest</td><td>flat vs 10/7; Kayak</td>
+          </tr>
+          <tr>
+            <td>2026-10-08</td><td>all</td><td>HPN</td><td class="num">—</td><td>—</td><td>no nonstops</td>
+          </tr>
           <tr>
             <td>2026-10-07</td><td>Sat–Tue</td><td>BDL</td><td class="num">$1,018</td><td>Southwest</td><td>flat vs 10/6; above either-low $972; Kayak</td>
           </tr>
@@ -544,8 +572,8 @@
             <td>2026-09-20</td><td>Fri–Mon</td><td>BDL</td><td class="num">$1,216</td><td>Southwest</td><td>baseline either-low</td>
           </tr>
         </tbody>
-      </table>
-      <p class="note">NYC as of last check (Oct 7): LGA $494 Fri–Mon Delta / $614 Sat–Mon Southwest / $494 Sat–Tue Delta · JFK $874 / $664 / $554 · EWR $1,096 / $1,028 / $938 across Fri–Mon / Sat–Mon / Sat–Tue (Kayak; some NYC reads after fixed wait). KPI uses LGA $494 Delta material undercut. Alert only if NYC undercuts primary by a material amount <em>and</em> policy triggers; primary alert is HPN/BDL either-low.</p>
+      </table></div>
+      <p class="note">NYC as of last check (Oct 8): LGA $494 Sat–Mon / $494 Sat–Tue / $544 Fri–Mon (Delta; Kayak). JFK/EWR not pulled Oct 8. KPI uses LGA $494 Delta (~$524 under today's BDL $1,018). Alert only if NYC undercuts primary by a material amount <em>and</em> policy triggers; primary alert is HPN/BDL either-low.</p>
     </section>
   </div>
 
